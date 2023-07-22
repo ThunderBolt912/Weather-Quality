@@ -3,6 +3,14 @@
 
 {% block content %}
 
+{% if zipcode %} 
+
+        {{zipcode}}
+
+{% endif %}    
+
+
+
 {% if api %}
 	{% if api == "Error..." %}
 		There was an error, please try again...
@@ -13,6 +21,7 @@
             Parameter : {{ api.0.ParameterName }} Ozone </h1>
         <p class="lead">{{ api.0.StateCode }} 
             Air Quality Index: {{ api.0.AQI }}</p>
+            <p> Reported Area: {{ api.0.ReportingArea}}</p>
         <hr class="my-4">
         
         <p>{{ category_description }}</p>
@@ -43,6 +52,8 @@
         Date of Observation: {{ api.0.DateObserved }}
         <br/> 
         Air Quality Index: {{ api.0.AQI }}
+        <br/> 
+        Reported Area: {{ api.0.ReportingArea}}
         <br/> 
         Grade : {{ api.0.Category.Name }}
         <br/> <br/> <br/> 
