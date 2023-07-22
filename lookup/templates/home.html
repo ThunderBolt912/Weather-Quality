@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% if api %}
+	{% if api == "Error..." %}
+		There was an error, please try again...
+	{% else %}
+
+    <div class="jumbotron {{ category_color }}">
+        <h1 class="display-4"> Grade : {{ api.0.Category.Name }} <br/> 
+            Parameter : {{ api.0.ParameterName }} Ozone </h1>
+        <p class="lead">{{ api.0.StateCode }} 
+            Air Quality Index: {{ api.0.AQI }}</p>
+        <hr class="my-4">
+        
+        <p>{{ category_description }}</p>
+
+      </div>
+
+
+      <div class="jumbotron  {{ category_colr }} ">
+        <h1 class="display-4"> Grade : {{ api.1.Category.Name }} <br/> 
+            Parameter : {{ api.1.ParameterName }} Particle Pollution </h1>
+        <p class="lead">{{ api.0.StateCode }} 
+            Air Quality Index: {{ api.1.AQI }}</p>
+        <hr class="my-4">
+        
+        
+        <p>{{ category_descr }}</p>
+
+
+      </div>
+
+
+
+
+        State Code : {{ api.0.StateCode }}
+        <br/> 
+        Parameter : {{ api.0.ParameterName }}
+        <br/> 
+        Date of Observation: {{ api.0.DateObserved }}
+        <br/> 
+        Air Quality Index: {{ api.0.AQI }}
+        <br/> 
+        Grade : {{ api.0.Category.Name }}
+        <br/> <br/> <br/> 
+ 
+
+        Parameter : {{ api.1.ParameterName }}
+        <br/> 
+        Date of Observation: {{ api.1.DateObserved }}
+        <br/> 
+        Air Quality Index: {{ api.1.AQI }}
+        <br/> 
+        Grade : {{ api.1.Category.Name }}
+        <br/> <br/> 
+    {% endif %}
+
+{% endif %}
+
+{% endblock %}
+
